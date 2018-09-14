@@ -1,0 +1,13 @@
+[package]
+name = "py"
+version = "0.1.0"
+authors = ["luozijun <hohohohohohohohohohoho@gmail.com>"]
+
+[dependencies]
+ffmpeg = "0.2.0-alpha.1"
+
+[dependencies.cpython]
+git = "https://github.com/dgrunwald/rust-cpython.git"
+branch = "master"
+default-features = false
+features = ["python3-sys", "python-3-7", "nightly"]
