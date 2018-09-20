@@ -21,7 +21,6 @@ unsafe fn run() {
     let mut input_fmt_ctx: *mut AVFormatContext = avformat_alloc_context();
     let mut output_fmt_ctx: *mut AVFormatContext = avformat_alloc_context();
 
-    // let output_fmt: AVOutputFormat
     if avformat_open_input(&mut input_fmt_ctx, 
                             input_filename.as_ptr() as *const i8,
                             0 as _,
@@ -126,10 +125,7 @@ unsafe fn run() {
 
     let input_codec_ctx: *mut AVCodecContext = avcodec_alloc_context3(input_codec);
     assert_eq!(input_codec_ctx.is_null(), false);
-
-    // (*input_codec_ctx).pix_fmt = AVPixelFormat::AV_PIX_FMT_RGB24;
     
-
     av_ret(avcodec_parameters_to_context(input_codec_ctx, input_stream_codecpar))
         .expect("Copy codec parameter failed.");
 
